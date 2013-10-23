@@ -81,3 +81,25 @@ Existen solo 12 moldes super ricos. Todas las demas permutaciones son solo ricas
 Por ende el numero de moldes ricos es 12 super ricos en los que puedo cambiar la masita por cualquier posicion. Esto da 12 x 9. El resto de los moldes que son ricos donde puedo cambiar la masita por cualquiera de las seis posiciones no ocupadas por el grupo que esta alineado. Esto es 324 x 6.
 
 No se si esto esta bien, pero igual para mi estos postres son todos IGUALES ... es que me va mas lo salado :)
+
+Por ultimo, esta oracion me trae una duda:
+
+    La masita es especial, puede alinearse con cualquier ingrediente
+
+Yo interprete que la masita no convierte un molde en rico. Quiero decir
+que si tengo un molde como:
+
+    bombon      azul	    frutilla
+    rojo        manzana	    alfajor
+    amarillo	pera	    turron
+
+Al poner la masita en la primera fila y primera columna
+
+
+    MASITA      azul	    frutilla
+    rojo        manzana	    alfajor
+    amarillo	pera	    turron
+
+El grupo vertial Masita, rojo y amarillo no cumple la condicion "cuando tres mismos ingredientes estan alineados vertical u horizonalmente". 
+
+Espero haber entendido el enunciado :(
