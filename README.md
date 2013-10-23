@@ -100,6 +100,6 @@ Al poner la masita en la primera fila y primera columna
     rojo        manzana	    alfajor
     amarillo	pera	    turron
 
-El grupo vertial Masita, rojo y amarillo no cumple la condicion "cuando tres mismos ingredientes estan alineados vertical u horizonalmente". 
+El grupo vertical Masita, rojo y amarillo no cumple la condicion "cuando tres mismos ingredientes estan alineados vertical u horizonalmente". 
 
 Espero haber entendido el enunciado :(
