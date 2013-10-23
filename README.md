@@ -53,11 +53,13 @@ Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde
     b) solo un grupo alineado
 
 a)
+
     pera	manzana	frutilla
     rojo	azul	amarillo
     bombon	alfajor	turron
 
 b)
+
     bombon	manzana	frutilla
     rojo	azul	amarillo
     pera	alfajor	turron
