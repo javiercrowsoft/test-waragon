@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <script>
+
+        function run() {
+            document.getElementById('working').style.display = 'block';    
+            document.getElementById("result").innerHTML = '';
+            startWorker();
+        }
+
+        var w;
+
+        function startWorker()
+        {
+            if(typeof(Worker)!=="undefined")
+            {
+                if(typeof(w)=="undefined")
+                {
+                    w=new Worker("permutations.js");
+                    w.addEventListener("message", function (event) {
+                        document.getElementById("result").innerHTML = event.data;
+                        document.getElementById('working').style.display = 'none';
+                    }, false);
+                }
+                w.postMessage("");
+            }
+            else
+            {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+            }
+        }
+
+        function stopWorker()
+        { 
+            w.terminate();
+        }
+    </script>
+    <style type="text/css">
+    .row-aligned td {
+        color: yellow;
+    }
+    table, p, li {
+        font-size: 24px;
+    }
+    </style>
+</head>
+<body style="background: black; color: white;">
+    <div style="width: 400px; margin: 0 auto;">
+        <h1>Definicion</h1>
+        <p>Se tiene un molde (con forma de tablero 3x3) y 10 unidades de distintos ingredientes (3 dulces, 3 frutas, 3 confites 1 masita) para hacer un pastel</p>
+        <p>Se considera que un pastel de 9 ingredientes es rico cuando tres mismos ingredientes estan alineados vertical u horizonalmente en el molde. La masita es especial, puede alinearse con cualquier ingrediente.</p>
+        <p>&#191;Cuantos pasteles ricos pueden cocinarse?</p>
+        <div style="width: 80px;"><button onclick="run()"><span style="font-size: 24px">Calcular</span></button></div>
+        <div id='result' style="width: 320px; text-align: center; font-size: 36px"></div>
+        <div id='working' style="display: none; width: 320px; text-align: center;"><img src='http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_gray_512.gif' style='height: 50px; width: 50px;'></div>
+        <div style="margin-top: 80px;">
+        <h2>Posible solucion</h2>
+        <p>Son tres grupos de tres elementos cada uno.</p>
+        <table border="1" width="90px;">
+            <tr><td>F</td><td>F</td><td>F</td></tr>
+            <tr><td>D</td><td>D</td><td>D</td></tr>
+            <tr><td>C</td><td>C</td><td>C</td></tr>                        
+        </table>
+        <p>Hay que obtener todas las permutaciones posibles que sean distintas.</p>
+        <p>Por ejemplo: si tenemos frutas {pera, manzana, frutilla}, confites {rojo, azul, amarillo} y dulces {bombon, alfajor, turron} (ups se me hizo dificil encontrar tres ejemplos de dulces :)</p>
+        <p>Esta combinacion:</p>
+        <table border="1" width="90px;">
+            <tr><td>pera</td><td>manzana</td><td>frutilla</td></tr>
+            <tr><td>rojo</td><td>azul</td><td>amarillo</td></tr>
+            <tr><td>bombon</td><td>alfajor</td><td>turron</td></tr>                        
+        </table>
+        <p>Es igual a esta otra:</p>
+        <table border="1" width="90px;">
+            <tr><td><strong><font color="yellow">manzana</font></strong></td><td><strong><font color="yellow">pera</font></strong></td><td>frutilla</td></tr>
+            <tr><td>rojo</td><td>azul</td><td>amarillo</td></tr>
+            <tr><td>bombon</td><td>alfajor</td><td>turron</td></tr>                        
+        </table>
+        <p>Solo se cambiaron la pera y la manzana dentro de la misma fila</p>
+        <p>Una permutacion valida seria:</p>
+        <table border="1" width="90px;">
+            <tr><td><strong><font color="yellow">rojo</font></strong></td><td>pera</td><td>frutilla</td></tr>
+            <tr><td><strong><font color="yellow">manzana</font></strong></td><td>azul</td><td>amarillo</td></tr>
+            <tr><td>bombon</td><td>alfajor</td><td>turron</td></tr>                        
+        </table>
+        <p>Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde rico:</p> 
+        <ul>
+            <li>los tres grupos alineados</li>
+            <li>solo un grupo alineado</li>    
+        </ul>
+        <table class="row-aligned" border="1" width="90px;">
+            <tr><td>pera</td><td>manzana</td><td>frutilla</td></tr>
+            <tr><td>rojo</td><td>azul</td><td>amarillo</td></tr>
+            <tr><td>bombon</td><td>alfajor</td><td>turron</td></tr>                        
+        </table>
+        <br />
+        <table border="1" width="90px;">
+            <tr><td>bombon</td><td>manzana</td><td>frutilla</td></tr>
+            <tr class="row-aligned"><td>rojo</td><td>azul</td><td>amarillo</td></tr>
+            <tr><td>pera</td><td>alfajor</td><td>turron</td></tr>                        
+        </table>
+        <p>La masita es intercambiable por lo tanto para toda permutacion se puede remover el ingrediente contenido
+            en cualquier posicion y sustituirlo por la masita.</p>    
+        <p>Cuando un molde es super rico (los tres grupos alineados) se puede intercambiar la masita por cualquier ingrediente y el molde seguira siendo rico.</p>
+        <p>Cuando un molde es solo rico (solo un grupo alineado) se puede intercambiar la masita con cualquiera de las seis posiciones ocupadas por los grupos no alineados.</p>
+
+        <table border="1" width="90px;">
+            <tr><td>bombon</td><td>manzana</td><td>frutilla</td></tr>
+            <tr class="row-aligned"><td>rojo</td><td>azul</td><td>amarillo</td></tr>
+            <tr><td>pera</td><td>alfajor</td><td>turron</td></tr>                        
+        </table>
+        
+        <p>En el molde de arriba, puedo poner la masita en las filas 1 y 3, es decir que puedo reemplazar pera, manzana, frutilla, bombon, alfajor y turron.</p> 
+        
+        <p>Existen solo 12 moldes super ricos. Todas las demas permutaciones son solo ricas u horribles :)</p>
+        
+        <p>Por ende el numero de moldes ricos es 12 super ricos en los que puedo cambiar la masita por cualquier posicion. Esto da 12 x 9. 
+            El resto de los moldes que son ricos donde puedo cambiar la masita por cualquiera de las seis posiciones no ocupadas por el grupo que esta alineado.
+            Esto es 324 x 6.</p>
+            
+        <p>No se si esto esta bien, pero igual para mi estos postres son todos IGUALES ... es que me va mas lo salado :)</p>    
+        </div>
+    </div>
+</body>
+</html>
