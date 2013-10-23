@@ -49,15 +49,15 @@ Una permutacion valida seria:
 
 Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde rico:
 
-    los tres grupos alineados
-    solo un grupo alineado
+    a) los tres grupos alineados
+    b) solo un grupo alineado
 
-    
+a)
     pera	manzana	frutilla
     rojo	azul	amarillo
     bombon	alfajor	turron
 
-
+b)
     bombon	manzana	frutilla
     rojo	azul	amarillo
     pera	alfajor	turron
