@@ -35,21 +35,17 @@ Esta combinacion:
 
 Es igual a esta otra:
 
-manzana	pera	frutilla
-
-rojo	azul	amarillo
-
-bombon	alfajor	turron
+    manzana	pera	frutilla
+    rojo	azul	amarillo
+    bombon	alfajor	turron
 
 Solo se cambiaron la pera y la manzana dentro de la misma fila
 
 Una permutacion valida seria:
 
-rojo	pera	frutilla
-
-manzana	azul	amarillo
-
-bombon	alfajor	turron
+    rojo	pera	frutilla
+    manzana	azul	amarillo
+    bombon	alfajor	turron
 
 Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde rico:
 
@@ -57,18 +53,14 @@ Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde
     solo un grupo alineado
 
     
-pera	manzana	frutilla
-
-rojo	azul	amarillo
-
-bombon	alfajor	turron
+    pera	manzana	frutilla
+    rojo	azul	amarillo
+    bombon	alfajor	turron
 
 
-bombon	manzana	frutilla
-
-rojo	azul	amarillo
-
-pera	alfajor	turron
+    bombon	manzana	frutilla
+    rojo	azul	amarillo
+    pera	alfajor	turron
 
 La masita es intercambiable por lo tanto para toda permutacion se puede remover el ingrediente contenido en cualquier posicion y sustituirlo por la masita.
 
@@ -76,11 +68,9 @@ Cuando un molde es super rico (los tres grupos alineados) se puede intercambiar 
 
 Cuando un molde es solo rico (solo un grupo alineado) se puede intercambiar la masita con cualquiera de las seis posiciones ocupadas por los grupos no alineados.
 
-bombon	manzana	frutilla
-
-rojo	azul	amarillo
-
-pera	alfajor	turron
+    bombon	manzana	frutilla
+    rojo	azul	amarillo
+    pera	alfajor	turron
 
 En el molde de arriba, puedo poner la masita en las filas 1 y 3, es decir que puedo reemplazar pera, manzana, frutilla, bombon, alfajor y turron.
 
