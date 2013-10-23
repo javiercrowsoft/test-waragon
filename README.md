@@ -16,8 +16,11 @@ Se considera que un pastel de 9 ingredientes es rico cuando tres mismos ingredie
 Posible solucion
 
 Son tres grupos de tres elementos cada uno.
+
 F	F	F
+
 D	D	D
+
 C	C	C
 
 Hay que obtener todas las permutaciones posibles que sean distintas.
@@ -25,20 +28,29 @@ Hay que obtener todas las permutaciones posibles que sean distintas.
 Por ejemplo: si tenemos frutas {pera, manzana, frutilla}, confites {rojo, azul, amarillo} y dulces {bombon, alfajor, turron} (ups se me hizo dificil encontrar tres ejemplos de dulces :)
 
 Esta combinacion:
+
 pera	manzana	frutilla
+
 rojo	azul	amarillo
+
 bombon	alfajor	turron
 
 Es igual a esta otra:
+
 manzana	pera	frutilla
+
 rojo	azul	amarillo
+
 bombon	alfajor	turron
 
 Solo se cambiaron la pera y la manzana dentro de la misma fila
 
 Una permutacion valida seria:
+
 rojo	pera	frutilla
+
 manzana	azul	amarillo
+
 bombon	alfajor	turron
 
 Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde rico:
@@ -46,12 +58,18 @@ Analizando esto obtenemos que hay dos tipos de cobinaciones que nos dan un molde
     los tres grupos alineados
     solo un grupo alineado
 
+    
 pera	manzana	frutilla
+
 rojo	azul	amarillo
+
 bombon	alfajor	turron
 
+
 bombon	manzana	frutilla
+
 rojo	azul	amarillo
+
 pera	alfajor	turron
 
 La masita es intercambiable por lo tanto para toda permutacion se puede remover el ingrediente contenido en cualquier posicion y sustituirlo por la masita.
@@ -59,8 +77,11 @@ La masita es intercambiable por lo tanto para toda permutacion se puede remover 
 Cuando un molde es super rico (los tres grupos alineados) se puede intercambiar la masita por cualquier ingrediente y el molde seguira siendo rico.
 
 Cuando un molde es solo rico (solo un grupo alineado) se puede intercambiar la masita con cualquiera de las seis posiciones ocupadas por los grupos no alineados.
+
 bombon	manzana	frutilla
+
 rojo	azul	amarillo
+
 pera	alfajor	turron
 
 En el molde de arriba, puedo poner la masita en las filas 1 y 3, es decir que puedo reemplazar pera, manzana, frutilla, bombon, alfajor y turron.
