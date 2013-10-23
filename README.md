@@ -29,11 +29,11 @@ Por ejemplo: si tenemos frutas {pera, manzana, frutilla}, confites {rojo, azul, 
 
 Esta combinacion:
 
-pera	manzana	frutilla
-
-rojo	azul	amarillo
-
-bombon	alfajor	turron
+  pera	manzana	frutilla
+  
+  rojo	azul	amarillo
+  
+  bombon	alfajor	turron
 
 Es igual a esta otra:
 
